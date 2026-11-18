@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Garage1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Garage1"
+
+    >
+
+    <TabBar>
+        <!-- Вкладка 1: Гаражи -->
+        <Tab Title="Гаражи" Icon="garage.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+        </Tab>
+
+        <!-- Вкладка 2: Брони -->
+        <Tab Title="Мои брони" Icon="book.png">
+            <ShellContent ContentTemplate="{DataTemplate local:GaragesPage}" Route="GaragesPage" />
+        </Tab>
+        <!-- Вкладка 3: Лк -->
+        <Tab Title="Профиль" Icon="user.png">
+            <ShellContent ContentTemplate="{DataTemplate local:UserPage}" Route="UserPage" />
+        </Tab>
+        
+    </TabBar>
+
+</Shell>
