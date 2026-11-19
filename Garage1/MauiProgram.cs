@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace Garage1
 {
@@ -8,6 +9,7 @@ namespace Garage1
         {
             var builder = MauiApp.CreateBuilder();
             builder
+                .ConfigureSyncfusionCore()
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {

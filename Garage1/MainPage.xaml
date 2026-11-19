@@ -1,13 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Garage1.MainPage" >
-
-    <FlexLayout Direction="Column" HorizontalOptions="Start">
-     
-
-
-
-    </FlexLayout>
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:local="clr-namespace:Garage1"
+             x:Class="Garage1.MainPage" 
+             >
+    <ContentPage.BindingContext>
+        <local:GarageSearchViewModel />
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout Padding="15">
+        <Label
+         HorizontalOptions="Start"
+         Padding="1"
+         TextColor="White"
+         FontSize="26"
+         Text="Доступные гаражи">
+        </Label>
+        <Label
+         HorizontalOptions="Start"
+         TextColor="Gray"
+         FontSize="15"
+         Text="Рядом с вами: ">
+        </Label>
+        <editors:SfAutocomplete
+            Margin="20"
+            HorizontalOptions="Center"
+            x:Name="autocomplete"
+            ItemsSource="{Binding GarageSearch}"
+            DisplayMemberPath="Name"
+            TextMemberPath="Name"
+            ShowSuggestionsOnFocus="True"
+            MinimumPrefixCharacters="1"
+            TextSearchMode="Contains"
+            WidthRequest="300"
+            HeightRequest="50"
+            />
+    </VerticalStackLayout>
+    
 
 </ContentPage>

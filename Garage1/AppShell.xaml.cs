@@ -1,4 +1,4 @@
-﻿using Android.Hardware.Camera2.Params;
+﻿
 
 namespace Garage1
 {
