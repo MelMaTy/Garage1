@@ -7,7 +7,7 @@ namespace Garage1
         public AppShell()
         {
             InitializeComponent();
-            Application.Current.UserAppTheme = AppTheme.Dark;
+            
         }
     }
 }

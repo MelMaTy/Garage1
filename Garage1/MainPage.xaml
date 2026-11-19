@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+           
              xmlns:local="clr-namespace:Garage1"
              x:Class="Garage1.MainPage" 
-             >
+             BackgroundColor="#0D0F10">
+    
     <ContentPage.BindingContext>
         <local:GarageSearchViewModel />
     </ContentPage.BindingContext>
@@ -23,19 +24,52 @@
          FontSize="15"
          Text="Рядом с вами: ">
         </Label>
-        <editors:SfAutocomplete
-            Margin="20"
-            HorizontalOptions="Center"
-            x:Name="autocomplete"
-            ItemsSource="{Binding GarageSearch}"
-            DisplayMemberPath="Name"
-            TextMemberPath="Name"
-            ShowSuggestionsOnFocus="True"
-            MinimumPrefixCharacters="1"
-            TextSearchMode="Contains"
-            WidthRequest="300"
-            HeightRequest="50"
-            />
+
+        <Border BackgroundColor="#1C2223"
+        StrokeThickness="0"
+        Padding="12,0"
+        Margin="8"
+        >
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20" />
+            </Border.StrokeShape>
+
+            <Grid ColumnDefinitions="Auto, *, Auto" VerticalOptions="Center">
+
+                <!-- Иконка поиска (слева) -->
+                <Image Source="search.png" 
+               WidthRequest="20" HeightRequest="20" 
+               VerticalOptions="Center" 
+               Margin="0,0,10,0" 
+               Opacity="0.7"/>
+
+                <!-- Поле ввода  -->
+                <Entry Grid.Column="1"
+               x:Name="SearchEntry"
+               BackgroundColor="Transparent"
+               TextColor="#D0D0D0"
+               PlaceholderColor="#8A8A8A"
+               Placeholder="Адрес или район"
+               FontSize="15"
+               VerticalOptions="Center"
+               ReturnType="Search"
+               ClearButtonVisibility="WhileEditing"
+               TextChanged="OnSearchTextChanged"
+               Completed="OnSearchCompleted" />
+
+                <!-- Иконка справа (меню/фильтр) -->
+                <Image Grid.Column="2" 
+               Source="menu.png" 
+               WidthRequest="24" HeightRequest="24" 
+               VerticalOptions="Center" 
+               Margin="10,0,0,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMenuTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+            </Grid>
+        </Border>
     </VerticalStackLayout>
     
 
