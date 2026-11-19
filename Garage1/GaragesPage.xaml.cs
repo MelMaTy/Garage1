@@ -2,8 +2,9 @@ namespace Garage1;
 
 public partial class GaragesPage : ContentPage
 {
-	public GaragesPage()
-	{
+    public GaragesPage()
+    {
         InitializeComponent();
     }
+    
 }

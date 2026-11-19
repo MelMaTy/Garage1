@@ -1,4 +1,4 @@
-﻿using Android.Hardware.Camera2.Params;
+﻿
 
 namespace Garage1
 {
@@ -7,7 +7,7 @@ namespace Garage1
         public AppShell()
         {
             InitializeComponent();
-            Application.Current.UserAppTheme = AppTheme.Dark;
+            
         }
     }
 }
